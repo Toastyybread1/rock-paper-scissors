@@ -7,10 +7,10 @@ let humanInput, computerInput;
 function getComputerChoice() {
     const random = Math.random()
 
-    if (random < 1/3) {
+    if (random > 2/3) {
         return "Rock";
 
-    } else if (random < 2/3) {
+    } else if (random > 1/3) {
         return "Paper";
 
     } else {
