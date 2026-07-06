@@ -10,7 +10,7 @@ function getComputerChoice() {
     if (random > 2/3) {
         return "Rock";
 
-    } else if (random > 1/3) {
+    } else if (random < 1/3) {
         return "Paper";
 
     } else {
@@ -41,35 +41,39 @@ function playRound(humanChoice, computerChoice) {
 
     alert("The computer plays... " + computerChoice + " !");
 
+   
     if (humanInput == computerInput) {
         alert("Nobody won!");
-        playRound(getHumanChoice(), getComputerChoice())
 
     } else if (humanInput == "Rock" && computerInput == "Scissors") {
         humanScore += 1; 
         alert("You won! \nYour Score: " + humanScore + "\nComputer Score:" + computerScore);
-        playRound(getHumanChoice(), getComputerChoice())
 
     } else if (humanInput == "Paper" && computerInput == "Rock") {
         humanScore += 1; 
         alert("You won! \nYour Score: " + humanScore + "\nComputer Score:" + computerScore);
-        playRound(getHumanChoice(), getComputerChoice())
 
     } else if (humanInput == "Scissors" && computerInput == "Paper") {
         humanScore +=1; 
         alert("You won! \nYour Score: " + humanScore + "\nComputer Score:" + computerScore);
-        playRound(getHumanChoice(), getComputerChoice())
 
     } else {
         computerScore += 1;
         alert("You Lost... \nYour Score: " + humanScore + "\nComputer Score:" + computerScore);
-        playRound(getHumanChoice(), getComputerChoice())
 
     }
 
+    if (humanScore == 5) {
+        alert("Congrats you win!");
+    } else if (computerScore == 5) {
+        alert("sorry you lost :( ");
+    } else {
+    playRound(getHumanChoice(), getComputerChoice())
+    }
+
+ }
 
 
-}
 
 
 playRound(getHumanChoice(), getComputerChoice())
